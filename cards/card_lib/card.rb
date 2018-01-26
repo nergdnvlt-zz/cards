@@ -8,6 +8,3 @@ class Card
   end
 
 end
-
-
-card1 = Card.new("What is the capital of Alaska?", "Juneau")
