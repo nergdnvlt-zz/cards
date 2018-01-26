@@ -14,7 +14,7 @@ class CardTest < Minitest::Test
   # end
 
   #test if guess class exists
-  def test_guess_class
+  def test_guess_class_if_correct
     card = Card.new("What is the capital of Alaska?", "Juneau")
     guess = Guess.new("Juneau", card)
     assert_instance_of Guess, guess
@@ -30,7 +30,7 @@ class CardTest < Minitest::Test
   def test_answer_correct?
     card = Card.new("What is the capital of Alaska?", "Juneau")
     guess = Guess.new("Juneau", card)
-    assert guess.correct?
+    assert_equal true, guess.correct?
   end
 
   def test_answer_feedback_is_correct
@@ -39,10 +39,29 @@ class CardTest < Minitest::Test
     assert_equal "Correct!", guess.feedback
   end
 
-  def test_guess_class_incorrect
+  def test_guess_class__if_incorrect
     card = Card.new("Which planet is closest to the sun?", "Mercury")
     guess = Guess.new("Saturn", card)
     assert_instance_of Guess, guess
     guess.card
   end
+
+  def test_response
+    card = Card.new("Which planet is closest to the sun?", "Mercury")
+    guess = Guess.new("Saturn", card)
+    assert_equal "Saturn", guess.response
+  end
+
+  def test_answer_incorrect?
+    card = Card.new("Which planet is closest to the sun?", "Mercury")
+    guess = Guess.new("Saturn", card)
+    assert_equal false, guess.correct?
+  end
+
+  def test_answer_feedback_is_incorrect
+    card = Card.new("Which planet is closest to the sun?", "Mercury")
+    guess = Guess.new("Saturn", card)
+    assert_equal "Incorrect.", guess.feedback
+  end
+
 end
