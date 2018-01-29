@@ -7,12 +7,6 @@ require './card_lib/card.rb'
 
 class CardTest < Minitest::Test
 
-  #test if card exists
-  # def test_if_calling_card_class_works
-  #   card = Card.new("Capital Question", "Capital answer")
-  #   assert_instance_of Card, card
-  # end
-
   #test if guess class exists
   def test_guess_class_if_correct
     card = Card.new("What is the capital of Alaska?", "Juneau")
